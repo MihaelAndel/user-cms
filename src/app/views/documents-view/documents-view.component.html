@@ -5,7 +5,7 @@
     <app-search-bar (searched)="searched($event)" [savedSearch]="false"></app-search-bar>
     <app-documents-toolbar></app-documents-toolbar>
     <div class="data-container">
-      <app-documents-datatable [data]="filteredDocuments$ | async"></app-documents-datatable>
+      <app-documents-datatable class="datatable" [data]="filteredDocuments$ | async"></app-documents-datatable>
     </div>
   </div>
 </div>
