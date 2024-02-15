@@ -1,0 +1,8 @@
+<a class="item-link" [routerLink]="route" [routerLinkActive]="'link-active'">
+  <div class="sidebar-item" [class.opened]="sidebarService.isOpened$ | async">
+    <app-svg-icon [iconName]="icon"></app-svg-icon>
+    <p class="sidebar-item__text">
+      {{ text }}
+    </p>
+  </div>
+</a>

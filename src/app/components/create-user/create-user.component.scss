@@ -1,0 +1,84 @@
+@import '../../style/colors.scss';
+
+$gap: 6px;
+$padding: 20px;
+
+.create-user {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+
+  &__inputs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $gap;
+    width: 100%;
+    padding: 30px $padding;
+    box-sizing: border-box;
+
+    input {
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid map-get($map: $neutral, $key: 10);
+      border-radius: 6px;
+      padding: 9px 12px;
+
+      &:focus {
+        outline: 2px solid map-get($map: $primary, $key: 40);
+      }
+    }
+  }
+
+  &__permissions {
+    &__row {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      text-align: center;
+      padding: 22px 0px;
+      color: map-get($map: $primary, $key: 90);
+      font-size: 12px;
+      margin: 0 20px;
+      border-bottom: 1px solid map-get($map: $neutral, $key: 10);
+      
+      &:first-child {
+        padding-left: 20px;
+        padding-right: 20px;
+        border: none;
+        margin: 0;
+        font-size: 15px;
+        color: map-get($map: $neutral, $key: 50);
+        background-color: map-get($map: $neutral, $key: 10);
+      }
+
+      :first-child {
+        text-align: left;
+      }
+
+      input[type=checkbox] {
+        accent-color: map-get($map: $neutral, $key: 90);
+      }
+    }
+  }
+}
+
+.flex-100 {
+  // flex: 0 0 calc(100% - calc(2 * $padding));
+  flex: 0 0 100%;
+  box-sizing: border-box;
+}
+.flex-50 {
+  flex: 0 0 calc(50% - calc($gap / 2));
+  box-sizing: border-box;
+}
+.flex-33 {
+  flex: 0 0 calc(33.3334% - calc(2 / 3 * $gap));
+  box-sizing: border-box;
+}
+
+.error {
+  color: $error;
+  font-size: 12px;
+  input {
+    border: 1px solid $error;
+  }
+}

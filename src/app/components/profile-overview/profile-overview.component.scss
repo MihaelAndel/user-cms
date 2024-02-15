@@ -1,0 +1,29 @@
+@import '../../style/colors.scss';
+@import '../../../styles.scss';
+
+.overview {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  &__pfp {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    background-color: map-get($map: $neutral, $key: 30);
+  }
+
+  &__user-data {
+    &__title {
+      @include title-text;
+      font-weight: 600;
+      color: map-get($map: $neutral, $key: 100);
+    }
+    
+    &__subtitle {
+      @include subtitle-text;
+      color: map-get($map: $neutral, $key: 70);
+      font-weight: 400;
+    }
+  }
+}

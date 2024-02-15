@@ -1,0 +1,111 @@
+@import '../../style/layout.scss';
+@import '../../style/colors.scss';
+
+.search-bar {
+  display: flex;
+  flex-direction: column;
+  gap:16px;
+  
+  @include md {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+  }
+
+  &__search-input {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 12px 12px 20px;
+    border-radius: 16px;
+    border-color: transparent;
+    background-color: $white;
+    border: 2px solid transparent;
+
+    &:has(input:focus) {
+      border-color: map-get($map: $primary, $key: 40);
+    }
+
+    @include md {
+      flex: 1 1 40%;
+    }
+
+    @include lg {
+      flex: 1 1 60%;
+    }
+
+    input {
+      width: 100%;
+      border: none;
+      outline: none;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    
+    @include md {
+      flex: 1 1 20%;
+      gap: 32px;
+    }
+
+    &__add {
+      text-wrap: nowrap;
+      flex: 1 1 90%;
+      font-size: 14px;
+      padding: 15px;
+      box-shadow: 2.5px 4.3px 10px 0px #0000001A;
+      background-color: map-get($map: $primary, $key: 40);
+      border: none;
+      color: $white;
+      border-radius: 6px;
+      cursor: pointer;
+
+      @include lg {
+        font-size: 17px;
+      }
+    }
+
+    &__additional {
+      text-wrap: nowrap;
+      font-size: 14px;
+      text-align: center;
+      flex: 1 1 10%;
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      gap: 30px;
+
+      @include lg {
+        font-size: 17px;
+      }
+
+      .sort-icon {
+        color: map-get($map: $neutral, $key: 80);
+      }
+
+      > * {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &--no-add {
+    .search-bar__search-input {
+      @include md {
+        flex-basis: 90%;
+      }
+    }
+    .search-bar__actions {
+      @include md {
+        flex-basis: 10%;
+      }
+    }
+  }
+}

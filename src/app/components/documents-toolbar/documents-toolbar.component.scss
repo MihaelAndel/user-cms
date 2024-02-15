@@ -1,0 +1,91 @@
+@import '../../style/colors.scss';
+@import '../../../styles.scss';
+
+.documents-toolbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  
+  @include lg {
+    gap: 30px;
+    height: 50px;
+    flex-direction: row;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 17px;
+    flex: 1 1 100%;
+    
+    @include md {
+      justify-content: space-evenly;
+      flex: 0 1 auto;
+    }
+
+    &__action {
+      cursor: pointer;
+      display: flex;
+      border: 1px solid map-get($map: $neutral, $key: 25);
+      width: 50px;
+      height: 50px;
+      color: map-get($map: $primary, $key: 40);
+
+      &:hover {
+        background-color: map-get($map: $neutral, $key: 10);
+      }
+
+      > * {
+        margin: auto;
+      }
+    }
+  }
+
+  &__filters {
+    display: flex;
+    flex: 1 1 auto;
+    gap: 6px;
+    height: 50px;
+    justify-content: space-between;
+    
+    @include lg {
+      justify-content: end;
+      height: auto;
+    }
+
+    &__item {
+      border: 1px solid map-get($map: $neutral, $key: 25);
+      display: flex;
+      flex: 1 1 auto;
+      align-items: center;
+      height: 100%;
+      padding: 0 20px;
+      justify-content: space-between;
+      border-radius: 3px;
+
+      @include lg {
+        flex-grow: 0;
+      }
+
+      input {
+        background-color: transparent;
+        border: none;
+        outline: none;
+        padding: 0;
+        font-size: 15px;
+        width: 100%;
+      }
+    }
+
+    &__add {
+      justify-content: center;
+      background-color: map-get($map: $primary, $key: 40);
+      color: $white;
+      font-size: 22px;
+      font-weight: 800;
+      text-align: center;
+      cursor: pointer;
+    }
+  }
+}

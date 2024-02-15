@@ -1,1 +1,59 @@
-/* You can add global styles to this file, and also import other style files */
+@import './app/style/layout.scss';
+@import './app/style/colors.scss';
+
+body {
+  font-family: 'Open Sans';
+  height: 100vh;
+  margin: 0;
+}
+
+@mixin title-text {
+  font-size: 16px;
+  line-height: 30px;
+  letter-spacing: 0.15px;
+}
+
+@mixin subtitle-text {
+  font-size: 10px;
+  line-height: 16px;
+  letter-spacing: 0.25px;
+}
+
+@mixin page-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 33px;
+  color: map-get($map: $primary, $key: 40);
+  padding: 0 20px;
+}
+
+@mixin page-container {
+  margin: auto;
+  transition: opacity .5s;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+
+  > :last-child {
+    flex: 1 1 auto;
+  }
+}
+
+@mixin data-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  
+  .datatable {
+    width: 100%;
+    flex: 1 1 90%;
+  }
+  
+  .paginator {
+    justify-self: end;
+  }
+}

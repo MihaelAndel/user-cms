@@ -1,0 +1,22 @@
+@import '../../../styles.scss';
+
+.page-container {
+  @include page-container;
+}
+
+.page-title {
+  @include page-title;
+}
+
+.data-container {
+  @include data-container;
+  overflow-y: auto;
+}
+
+.loading {
+  opacity: 0;
+}
+
+.container {
+  height: 100%;  
+}

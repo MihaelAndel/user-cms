@@ -1,0 +1,11 @@
+<div class="container">
+  <h1 *ngIf="isLoading$ | async">Loading</h1>
+  <div class="page-container" [class.loading]="isLoading$ | async">
+    <h2 class="page-title">Users Dashboard</h2>
+    <app-search-bar add="Add user" (searched)="searched($event)" (addActionClicked)="createUser()" [savedSearch]="true"></app-search-bar>
+    <div class="data-container">
+      <app-dashboard-datatable class="datatable" [data]="filteredUsers$ | async" (editClicked)="editUser($event)"></app-dashboard-datatable>
+      <app-paginator class="paginator"></app-paginator>
+    </div>
+  </div>
+</div>

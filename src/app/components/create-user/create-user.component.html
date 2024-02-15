@@ -1,0 +1,94 @@
+<div class="create-user">
+  <form [formGroup]="basicData">
+    <div class="create-user__inputs">
+      <div class="flex-100" [class.error]="hasError('userID')">
+        <input type="text" placeholder="User ID *" required formControlName="userID">
+      </div>
+      <div class="flex-50" [class.error]="hasError('firstName')">
+        <input type="text" placeholder="First Name *" required formControlName="firstName">
+      </div>
+      <div class="flex-50" [class.error]="hasError('lastName')">
+        <input type="text" placeholder="Last Name *" required formControlName="lastName">
+      </div>
+      <div class="flex-33" [class.error]="hasError('email')">
+        <input type="email" placeholder="Email ID *" required formControlName="email">
+      </div>
+      <div class="flex-33" [class.error]="hasError('mobile')">
+        <input type="text" placeholder="Mobile No" formControlName="mobile">
+      </div>
+      <div class="flex-33" [class.error]="hasError('role')">
+        <input type="text" placeholder="Select Role Type" formControlName="role">
+      </div>
+      <div class="flex-33" [class.error]="hasError('username')">
+        <input type="text" placeholder="Username *" required formControlName="username">
+      </div>
+      <div class="flex-33" [class.error]="hasError('password') || hasPasswordMatchError()">
+        <input type="password" placeholder="Password *" required formControlName="password">
+        <span class="error" *ngIf="hasPasswordMatchError()">Passwords must match</span>
+      </div>
+      <div class="flex-33" [class.error]="hasError('repeatPassword') || hasPasswordMatchError()">
+        <input type="password" placeholder="Confirm Password *" required formControlName="repeatPassword">
+        <span class="error" *ngIf="hasPasswordMatchError()">Passwords must match</span>
+      </div>
+    </div>
+  </form>
+  <div class="create-user__permissions" [formGroup]="permissionData">
+    <div class="create-user__permissions__row">
+      <div>
+        Module Permission
+      </div>      
+      <div>
+        Read
+      </div>      
+      <div>
+        Write
+      </div>      
+      <div>
+        Delete
+      </div>      
+    </div>
+    <div class="create-user__permissions__row" formGroupName="superAdmin">
+      <div>
+        Super Admin
+      </div>      
+      <div>
+        <input type="checkbox" name="" id="" formControlName="read">
+      </div>      
+      <div>
+        <input type="checkbox" name="" id="" formControlName="write">
+      </div>      
+      <div>
+        <input type="checkbox" name="" id="" formControlName="delete">
+      </div>
+    </div>
+    <div class="create-user__permissions__row" formGroupName="admin">
+      <div>
+        Admin
+      </div>      
+      <div>
+        <input type="checkbox" name="" id="" formControlName="read">
+      </div>      
+      <div>
+        <input type="checkbox" name="" id="" formControlName="write">
+      </div>      
+      <div>
+        <input type="checkbox" name="" id="" formControlName="delete">
+      </div>     
+    </div>
+    <div class="create-user__permissions__row" formGroupName="employee">
+      <div>
+        Employee
+      </div>      
+      <div>
+        <input type="checkbox" name="" id="" formControlName="read">
+      </div>      
+      <div>
+        <input type="checkbox" name="" id="" formControlName="write">
+      </div>      
+      <div>
+        <input type="checkbox" name="" id="" formControlName="delete">
+      </div>
+    </div>
+  </div>
+  <div class="create-user__actions"></div>
+</div>

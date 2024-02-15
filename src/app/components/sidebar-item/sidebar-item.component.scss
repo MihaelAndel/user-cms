@@ -1,0 +1,55 @@
+@import '../../style/colors.scss';
+@import '../../style/layout.scss';
+
+$default-color: map-get($map: $neutral, $key: 70);
+$accent-color: map-get($map: $primary, $key: 40);
+
+.item-link {
+  text-decoration: none;
+
+  &:visited {
+    color: $default-color;
+  }
+}
+
+.item-link.link-active {  
+  color: $accent-color;
+  position: relative;
+
+  &::after {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 4px;
+    background-color: $accent-color;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+.sidebar-item {
+  display: grid;
+  grid-template-columns: minmax(min-content, 25px) 1fr;
+  gap: 16px;
+  place-items: center;
+
+  &__text {
+    display: none;
+    font-size: 14px;
+    margin: auto;
+    text-wrap: balance;
+    justify-self: start;
+    width: 100%;
+
+    @include md {
+      display: block;
+    }
+  }
+}
+
+.sidebar-item.opened {
+  .sidebar-item__text {
+    display: block;
+  }
+}

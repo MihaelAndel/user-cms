@@ -1,0 +1,131 @@
+@import '../../style/colors.scss';
+
+@mixin divider {
+  border-bottom: 1px solid map-get($map: $neutral, $key: 15);
+}
+
+$header-height: 75px;
+
+.datatable {
+  height: 100%;
+  
+  &__header { 
+    border-radius: 6px 6px 0 0;
+    background-color: $white;
+    padding: 0 25px;
+    height: $header-height;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    &__subtitle {
+      color: map-get($map: $neutral, $key: 45);
+      font-size: 12px;
+      line-height: 16px;
+      opacity: .4;
+    }
+    
+    &__title {
+      color: map-get($map: $neutral, $key: 45);
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 22px;
+    }
+  }
+  
+  &__divider {
+    @include divider;
+    background-color: $white;
+  }
+  
+  &__data {
+    border-radius: 0 0 6px 6px;
+    background-color: $white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow-y: auto;
+    box-sizing: border-box;
+
+    &__row {
+      display: flex;
+      align-items: center;
+
+      .document-data {
+        padding-bottom: 8px;
+        padding-left: 30px;
+        display: flex;
+        gap: 30px;
+        @include divider;
+        flex: 1 1 auto;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .document-icon {
+        display: flex;
+        padding-bottom: 8px;
+
+        > * {
+          padding: 8px;
+          color: map-get($map: $primary, $key: 40);
+          background-color: map-get($map: $neutral, $key: 35);
+          border-radius: 6px;
+        }
+      }
+
+      .document-name {
+        text-wrap: wrap;
+        flex: 0 0 75px;
+        word-break: break-all;
+        
+        &__name {
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;  
+          overflow: hidden;
+          font-size: 13px;
+          color: map-get($map: $primary, $key: 90);
+        }
+
+        &__date {
+          font-size: 12px;
+          color: map-get($map: $neutral, $key: 45);
+          opacity: .4;
+        }
+      }
+
+      .document-description {
+        color: map-get($map: $neutral, $key: 45);
+        font-size: 12px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;  
+        overflow: hidden;
+        flex: 1 1 auto;
+      }
+
+      .actions {
+        display: flex;
+        gap: 15px;
+        color: map-get($map: $primary, $key: 40);
+
+        :hover {            
+          background-color: map-get($map: $neutral, $key: 10);
+        }
+
+        > * {
+          cursor: pointer;
+          display: grid;
+          place-items: center;
+          box-sizing: border-box;
+          width: 40px;
+          height: 40px;
+          border: 1px solid map-get($map: $neutral, $key: 25);
+          padding: 6px;
+        }
+      }
+    }
+  }
+}

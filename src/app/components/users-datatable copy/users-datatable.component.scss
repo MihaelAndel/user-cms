@@ -1,0 +1,62 @@
+@import '../../style/colors.scss';
+
+.datatable {
+  border-radius: 16px;
+  width: 100%;
+  height: 100%;
+  background-color: $white;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: auto;
+
+  &__header-row {
+    white-space: nowrap;
+    background-color: map-get($map: $neutral, $key: 10);
+    > * {
+      background-color: map-get($map: $neutral, $key: 10);
+      padding: 22px;
+      display: inline-block;
+    }
+  }
+
+  &__data {
+    white-space: nowrap;
+    max-height: 100px;
+    &__row {
+      white-space: nowrap;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid map-get($map: $neutral, $key: 10);
+      }
+
+      > * {
+        padding: 22px;
+        display: inline-flex;
+        flex-direction: column;
+      }
+
+
+      .actions {
+        color: map-get($map: $primary, $key: 10);
+        gap: 20px;
+        flex-direction: row;
+
+        > * {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.size-sm {
+  width: 50px;
+}
+
+.size-md {
+  width: 150px;
+}
+
+.size-lg {
+  width: 300px;
+}

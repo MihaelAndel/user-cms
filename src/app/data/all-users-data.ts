@@ -1,0 +1,48 @@
+import { User, UserRole } from "../models/user.model";
+
+export const AllUserData: User[] = [
+  {
+    userID: 'test',
+    createDate: '01.01.2022.',
+    name: 'Test',
+    surname: 'Testovich',
+    email: 'test@test.test',
+    role: UserRole.SUPER_ADMIN,
+    password: 'test',
+    phone: '324t43t5',
+    username: 'test',
+  },
+  {
+    userID: 'auser',
+    createDate: '01.02.2022.',
+    name: 'Armin',
+    surname: 'User',
+    email: 'arminuser@test.test',
+    role: UserRole.ADMIN,
+    password: 'test',
+    phone: '324t43t5',
+    username: 'test',
+  },
+  {
+    userID: 'hr1',
+    createDate: '01.10.2022.',
+    name: 'Human',
+    surname: 'Resources',
+    email: 'hr@test.test',
+    role: UserRole.HR_ADMIN,
+    password: 'test',
+    phone: '324t43t5',
+    username: 'test',
+  },
+  {
+    userID: 'ekruger',
+    createDate: '11.01.2021.',
+    name: 'Eren',
+    surname: 'Kruger',
+    email: 'erenkruger@test.test',
+    role: UserRole.EMPLOYEE,
+    password: 'test',
+    phone: '324t43t5',
+    username: 'test',
+  },
+]

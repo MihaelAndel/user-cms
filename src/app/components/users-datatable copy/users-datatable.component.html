@@ -1,0 +1,28 @@
+<div class="datatable">
+  <div *ngIf="header" class="datatable__header">{{header}}</div>
+  <div class="datatable__header-row">
+    <div class="size-md">Name</div>
+    <div class="size-md">User ID</div>
+    <div class="size-md">Lorem Ipsum</div>
+    <div class="size-md">Date</div>
+    <div class="size-md">Lorem Ipsum</div>
+    <div class="size-sm">Action</div>
+  </div>
+  <div class="datatable__data">
+    <div class="datatable__data__row" *ngFor="let user of data">
+      <div class="size-md">
+        <div>
+          {{user.name}} {{user.surname}}
+        </div>
+      </div>
+      <div class="size-md">{{user.userID}}</div>
+      <div class="size-md">Lorem ipsum</div>
+      <div class="size-md">{{user.createDate}}</div>
+      <div class="size-md">Lorem ipsum</div>
+      <div class="size-sm actions">
+        <app-svg-icon iconName="check"></app-svg-icon>
+        <app-svg-icon iconName="trash"></app-svg-icon>
+      </div>
+    </div>
+  </div>
+</div>

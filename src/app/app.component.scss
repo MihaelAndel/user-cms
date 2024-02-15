@@ -1,0 +1,56 @@
+@import './style/layout.scss';
+@import './style/colors.scss';
+
+.app-root {
+  height: 100%;
+  display: grid;
+  grid-template-columns: $sidebar-width-closed 1fr;
+  grid-template-rows: $header-height calc(100vh - $header-height);
+  grid-template-areas:
+    "sidebar header"
+    "sidebar main"
+  ;
+
+  @include sm {
+    &:has(.opened) {
+      grid-template-columns: $sidebar-width 1fr;
+    }
+  }
+
+  @include md {
+    grid-template-columns: $sidebar-width-md 1fr;
+  }
+
+  @include lg {
+    grid-template-columns: $sidebar-width-lg 1fr;
+  }
+
+  &__sidebar {
+    background-color: $white;
+    grid-area: sidebar;
+  }
+
+  &__header {
+    background-color: map-get($map: $neutral, $key: 20);
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    padding: $header-padding;
+
+    @media (min-width: $md-width) {
+      padding: $header-padding-md;
+    }
+
+    & > * {
+      flex: 1 1 auto;
+    }
+  }
+  
+  &__main-view {
+    background-color: map-get($map: $neutral, $key: 20);
+    padding: 0 24px;
+    grid-area: main;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}

@@ -1,0 +1,32 @@
+@import '../../style/colors.scss';
+
+.paginator {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+  color: map-get($map: $neutral, $key: 60);
+  
+  .custom-select {
+    padding: 5px 15px;
+    background-color: transparent;
+    border-bottom: 1px solid map-get($map: $neutral, $key: 60);
+    gap: 3px;
+    position: relative;
+    
+    select {
+      appearance: none;
+      border: none;
+      width: 100%;
+      height: 100%;
+      outline: none;
+    }
+
+    &__icon {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}

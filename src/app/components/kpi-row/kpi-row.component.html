@@ -1,0 +1,6 @@
+<div class="kpi-row" *ngIf="data?.length">
+  <div *ngFor="let element of data" class="kpi-row__card">
+    <div class="kpi-row__card__title">{{element.title}}</div>
+    <div class="kpi-row__card__value">{{element.value}}</div>
+  </div>
+</div>

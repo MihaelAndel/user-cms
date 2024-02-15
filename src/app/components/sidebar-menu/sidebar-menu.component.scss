@@ -1,0 +1,71 @@
+@import '../../style/layout.scss';
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  padding-left: 16px;
+  padding-top: 50px;
+  position: relative;
+
+  @include md {
+    padding-left: 32px;
+    padding-top: 42px;
+  }
+
+  &__hamburger {
+    cursor: pointer;
+    user-select: none;
+    position: absolute;
+    right: 50%;
+    top: 10px;
+    transform: translateX(50%);
+    display: grid;
+    
+    @include md {
+      display: none;
+    }
+  }
+
+  &__logo {
+    display: none;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: 0.15px;
+    font-weight: 700;
+
+    @include md {
+      display: initial;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+
+    &__navigation, &__special {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      gap: 32px;
+
+      @include md {
+        align-items: initial;
+      }
+    }
+  }
+}
+
+.sidebar.opened {
+  .sidebar__logo {
+    display: initial;
+  }
+
+  .sidebar__menu {
+    &__navigation, &__special {
+      align-items: initial;
+    }
+  }
+}

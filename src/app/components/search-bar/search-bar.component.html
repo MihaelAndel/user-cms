@@ -1,0 +1,28 @@
+<div [class.search-bar--no-add]="!add" class="search-bar">
+
+  <div class="search-bar__search-input">
+    <div>
+      <app-svg-icon iconName="search"></app-svg-icon>
+    </div>
+    <input type="text" [(ngModel)]=text (ngModelChange)="searchChanged($event)"/>
+  </div>
+
+  <div class="search-bar__actions">
+    <button (click)="addButtonClicked()" *ngIf="add" class="search-bar__actions__add">
+      {{add}} +
+    </button>
+    <div class="search-bar__actions__additional">
+      <div>
+        Sort by
+        <app-svg-icon iconName="chevron_down"></app-svg-icon>
+      </div>
+      <div *ngIf="savedSearch">
+        saved searches
+        <app-svg-icon iconName="chevron_down"></app-svg-icon>
+      </div>
+      <div class="sort-icon">
+        <app-svg-icon iconName="sort"></app-svg-icon>
+      </div>
+    </div>
+  </div>
+</div>

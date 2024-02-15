@@ -1,0 +1,29 @@
+$sidebar-width-closed: 50px;
+$sidebar-width: 140px;
+$sidebar-width-md: 175px;
+$sidebar-width-lg: 200px;
+
+$header-height: 107px;
+$header-padding: 0 18px;
+$header-padding-md: 0 23px 0 43px;
+
+$md-width: 768px;
+$lg-width: 992px;
+
+@mixin sm {
+  @media screen and (max-width: $md-width) {
+    @content
+  }
+}
+
+@mixin md {
+  @media screen and (min-width: $md-width) {
+    @content
+  }
+};
+
+@mixin lg {
+  @media screen and (min-width: $lg-width) {
+    @content
+  }
+};

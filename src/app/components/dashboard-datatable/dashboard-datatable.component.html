@@ -1,0 +1,31 @@
+<div class="datatable">
+  <div *ngIf="header" class="datatable__header">{{header}}</div>
+  <div class="datatable__header-row">
+    <div class="size-lg">Name</div>
+    <div class="size-lg"></div>
+    <div class="size-md">Create date</div>
+    <div class="size-md">Role</div>
+    <div class="size-md">Action</div>
+  </div>
+  <div class="datatable__data">
+    <div class="datatable__data__row" *ngFor="let user of data">
+      <div class="size-lg">
+        <div>
+          {{user.name}} {{user.surname}}
+        </div>
+        <div class="email">
+          {{user.email}}
+        </div>
+      </div>
+      <div class="size-lg">
+        <app-role-chip [userRole]="user.role"></app-role-chip>
+      </div>
+      <div class="size-md">{{user.createDate}}</div>
+      <div class="size-md">{{user.role}}</div>
+      <div class="size-md actions end">
+        <app-svg-icon (click)="editClicked.emit(user)" iconName="edit"></app-svg-icon>
+        <app-svg-icon iconName="trash"></app-svg-icon>
+      </div>
+    </div>
+  </div>
+</div>

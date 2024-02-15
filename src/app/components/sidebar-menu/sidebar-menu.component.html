@@ -1,0 +1,24 @@
+<div class="sidebar" [class.opened]="sidebarService.isOpened$ | async">
+  <div class="sidebar__hamburger" (click)="toggleSidebar()">
+    <app-svg-icon iconName="burger"></app-svg-icon>
+  </div>
+  <div class="sidebar__logo">
+    YOURLOGO
+  </div>
+  <div class="sidebar__menu">
+    <div class="sidebar__menu__navigation">
+      <app-sidebar-item *ngFor="let item of navItems$ | async"
+        [icon]="item.icon"
+        [text]="item.text"
+        [route]="item.route"
+      ></app-sidebar-item>
+    </div>
+    <div class="sidebar__menu__special">
+      <app-sidebar-item *ngFor="let item of specialItems$ | async"
+        [icon]="item.icon"
+        [text]="item.text"
+        [route]="item.route"
+      ></app-sidebar-item>
+    </div>
+  </div>
+</div>

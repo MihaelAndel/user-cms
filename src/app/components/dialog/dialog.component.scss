@@ -1,0 +1,73 @@
+@import '../../style/colors.scss';
+
+@mixin dialog-button {
+  font-weight: 600;
+  padding: 5px 15px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.backdrop {
+  background-color: rgba(map-get($map: $primary, $key: 100), 0.5);
+  backdrop-filter: blur(2px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 10000;
+  display: grid;
+  place-items: center;
+}
+
+.dialog {
+  min-width: 550px;
+  max-width: min(80vw, 1150px);
+  min-height: 300px;
+  max-height: min(60vh, 800px);
+  background-color: $white;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid map-get($map: $neutral, $key: 10);
+
+    &__close-icon {
+      fill: map-get($map: $primary, $key: 80);
+      cursor: pointer;
+    }
+  }
+
+  &__content {
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  &__footer {
+    padding: 20px;
+    border-top: 1px solid map-get($map: $neutral, $key: 10);
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 30px;
+    font-size: 13px;
+    
+    
+    &__confirm {
+      @include dialog-button;
+      background-color: map-get($map: $primary, $key: 30);
+      color: $white;
+    }
+    
+    &__cancel {
+      @include dialog-button;
+      background-color: transparent;
+      color: map-get($map: $neutral, $key: 50);
+    }
+  }
+}

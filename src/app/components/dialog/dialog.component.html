@@ -1,0 +1,18 @@
+<div class="backdrop" (click)="onOverlayClicked($event)">
+  <div class="dialog" (click)="onDialogClicked($event)">
+    <div *ngIf="dialogConfig.title" class="dialog__header">
+      <div>
+        {{dialogConfig.title}}
+      </div>
+      <app-svg-icon class="dialog__header__close-icon" iconName="cross" (click)="close()" fill="black"></app-svg-icon>
+    </div>
+    <div class="dialog__content">  
+      <ng-template appInsertion>
+      </ng-template>
+    </div>
+    <div class="dialog__footer">
+      <button class="dialog__footer__confirm" (click)="confirm()" *ngIf="dialogConfig.confirm">{{dialogConfig.confirm}}</button>
+      <button class="dialog__footer__cancel" (click)="close()" *ngIf="dialogConfig.cancel">{{dialogConfig.cancel}}</button>
+    </div>
+  </div>
+</div>
